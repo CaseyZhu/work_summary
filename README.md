@@ -1,9 +1,9 @@
 # work_summary
 summary of my work<br>
-##VPP/ISP 
+## VPP/ISP 
 
-##CNN accelerator  
+## CNN accelerator  
 
-##image compression
+## image compression
 
-##AI accelerator
+## AI accelerator
