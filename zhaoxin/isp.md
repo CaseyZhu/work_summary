@@ -6,6 +6,7 @@ The basic flow of vpp(video post process)/isp as fellows: <br>
 Load module will continue load data from external memory if others release the space of line buffer.<br>
 4) Some module can only obtain data from pipe-line.<br>
 5) Finally, the processed data will be send back to external memory through Store module.<br> 
+![ss](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.png)
 ```
                            +--------------+
                            | external mem |
