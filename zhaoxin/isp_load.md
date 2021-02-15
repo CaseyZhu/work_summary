@@ -10,13 +10,10 @@ Other factors need to take care:
 2) external will retrurn more data than you want if the image data store in compression mode.
 ## Colour Format
 ### ARGB8888
-```
-+------------+------------+-----------+----------+
 | bits 31-24 | bits 23-16 | bits 15-8 | bits 7-0 |
-+------------+------------+-----------+----------+
+|----|----|----|----|
 |      A     |      R     |     G     |     B    |
-+------------+------------+-----------+----------+
-```
+
 ### RGB565
 ```
 +------------+------------+-----------+
