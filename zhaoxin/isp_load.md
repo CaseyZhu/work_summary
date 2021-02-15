@@ -35,15 +35,15 @@ in this format 4 Y share one UV, and Y, UV may store separately.
 ## Data Layout in External memory
 ### Linear format 
 In this format data store pixel by pixel untill one line done, and do a bus word alignment at the end of each line.
-l0   |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
-     |----|----|----|----|----|----|----|
-l1   |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
+| l0   |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
+|---- |----|----|----|----|----|----|----|
+| l1   |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
 ```
 ......
 ```
-ln-1 |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
-     |----|----|----|----|----|----|----|
-ln   |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
+| ln-1 |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
+ |----|----|----|----|----|----|----|----|
+|ln   |     p0     |     p1     |     p2    |    p3    | p4 | ..... | pn |
 ### Tile Format
 In this format the neighbour pixels are store together. 
 It more efficency than the linear format when the algorithm need multiple lines' data to process.
