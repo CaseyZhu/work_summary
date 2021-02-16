@@ -63,21 +63,21 @@ so only 512 bits data back we can start the process.
 ## Basic Process
 ### Clip Image
 In this mode we only want to process part of the image, the top, bottom,left, right may be cliped.
-![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg ){:height="200px" width="200px"}
+![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg )
 ### Cut Slice
 Becaus line buffer's size is limited, so we need cut the image into slices when the iamge is too big.
 There is an overlap region between different slices as below.
-![slice](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/cut_slice.svg = 200x200)
+![slice](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/cut_slice.svg)
 ### Rotation
 In this mode we need rotate the image.
-![rotate0](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate0.jpg = 200x200) ![rotate1](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate1.svgz = 200x200)
+![rotate0](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate0.jpg) ![rotate1](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate1.svgz)
 ### Down Scaling
 Down scaling 2x 4x in both x,y direction
-![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.jpg = 200x200) ![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.jpg = 100x100) ![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.jpg = 50x50)
+![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.svgz)
 ## Data swizzle in line buffer's bank
 There are 8 banks of sram in line buffer, the data width of the bank is 64 bits. 
 Different lines start at different banks like below. Bank number = y[2:0] + x[3:1]
-![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/swizzle.jpg = 200x200) 
+![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/swizzle.jpg) 
 ## Data back out of order
 During send out the requests, 
 we have compute out the bank number and banks address and put these information into tag.
