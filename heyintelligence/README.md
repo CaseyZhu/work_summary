@@ -76,19 +76,24 @@ e^f and 1/x can be realize by taylor expansion. Figure below depicted the realiz
 ## Image Compression
 Compression can reduce power and bandwidth. 
 And, images have the character that the color is very similar in a small local area.
-For example a 4x4 tile from the image may its pixel value like below.<br>
+For example a 4x4 tile from the image may its pixel value like below.And find the smallest value in the 4x4 block, the  value is 251, all value in the  block minus 251, we obtain below block.
+the max differential value is 4 , 3 bits is enough to store it. origin need 8 * 16 = 120 bits and now we can use 8 + 3 * 16 = 56  bits store it.  
+The memory layout change to two part header and body. Header's size is fixed it store the address and size of body and the information to decompression the body.
+
 |253|252|254|253|
 |----|----|----|----|
 |251|253|253|253|
 |252|253|255|253|
 |251|254|253|255|
-And find the smallest value in the 4x4 block, the  value is 251, all value in the  block minus 251, we obtain below block.<br>
+
+
+
 |2|1|3|2|
 |----|----|----|----|
 |0|2|2|2|
 |1|2|4|2|
 |0|3|2|4|
-the max differential value is 4 , 3 bits is enough to store it. origin need 8 * 16 = 120 bits and now we can use 8 + 3 * 16 = 56  bits store it.  <br>
-The memory layout change to two part header and body. Header's size is fixed it store the address and size of body and the information to decompression the body.
+
+
 
 
