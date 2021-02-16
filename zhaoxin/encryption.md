@@ -1,6 +1,6 @@
 # Security Engine
 Security Engine is to realize encryption, decryption and authentication.
-Different block cipher mode are also need to support. 
+Different block cipher mode are also need to support. <br>
 ![Encryption](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/encryption.png)
 ## Encryption
 The algorithm we support are DES,TDES,AES,SM4. 
@@ -13,11 +13,11 @@ operation to securely transform amounts of data larger than a block.
 Different block cipher mode decides different composition of 
 inputs and outputs of different algorithm. 
 For example the simplest of the encryption modes is the Electronic Codebook (ECB) mode. 
-The message is divided into blocks, and each block is encrypted separately.
+The message is divided into blocks, and each block is encrypted separately.<br>
 ![ECB](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ecb.jpg)
 Another example is the Cipher Block Chaining (CBC) mode. 
 In CBC mode, each block of plaintext is 
-XORed with the previous ciphertext block before being encrypted.
+XORed with the previous ciphertext block before being encrypted.<br>
 ![CBC](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/cbc.jpg)
 There are more block cipher mode such as PCBC,CTR,OFB...
 ## Authentication
