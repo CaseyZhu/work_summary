@@ -50,7 +50,7 @@ It more efficency than the linear format when the algorithm need multiple lines'
 For example, if we want to do 4x4 pooling we can store 4x4 sub-image continuiously in the external memory, 
 so only 512 bits data back we can start the process.
 ```
-+----+----+----+----+           +------------+------------+-----------+----------+
++----+----+----+----+           + ------------+------------+-----------+----------+
 | p0 | p1 | p2 | p3 |           |   p4*n+0   |   p4*n+1   |   p4*n+2  |  p4*n+3  |
 +----+----+----+----+           +------------+------------+-----------+----------+
 | p0 | p1 | p2 | p3 |           |   p4*n+0   |   p4*n+1   |   p4*n+2  |  p4*n+3  |
@@ -63,76 +63,25 @@ so only 512 bits data back we can start the process.
 ## Basic Process
 ### Clip Image
 In this mode we only want to process part of the image, the top, bottom,left, right may be cliped.
-```
-+ - - - - - - - - - +
-| original image    |
-|                   |
-| +---------------+ |
-| | clipped image | |
-| +---------------+ |
-|                   |
-+ - - - - - - - - - +
-```
+![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg = 200x200)
 ### Cut Slice
 Becaus line buffer's size is limited, so we need cut the image into slices when the iamge is too big.
 There is an overlap region between different slices as below.
-```
-+ - - - - -*-+ - - - - -#-* - - - - --$-# - - - - -&-$ - - - - -- - - - &
-| slice0+  | | slice1*  | | slice2#   | | slice3$  | | .....&           |
-|          | |          | |           | |          | |                  |
-|          | |          | |           | |          | |                  |
-|          | |          | |           | |          | |                  |
-|          | |          | |           | |          | |                  |
-|          | |          | |           | |          | |                  |
-+ - - - - -*-+ - - - - -#-* - - - - --$-# - - - - -&-$ - - - - -- - - - &
-```
+![slice](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/cut_slice.svg = 200x200)
 ### Rotation
 In this mode we need rotate the image.
-```
-+ - - - - - - - - - +  + - - - - - - - - - + + - - - - - - - - - + + - - - - - - - - - +
-| original image    |  |  rotate 90        | |  rotate 180       | | rotate 270        |
-|                   |  |       .           | |                   | |       #           |
-|                   |  |       .           | |                   | |       .           |
-|     .......#      |  |       .           | | #.......          | |       .           |
-|                   |  |       .           | |                   | |       .           |
-|                   |  |       #           | |                   | |       .           |
-+ - - - - - - - - - +  + - - - - - - - - - + + - - - - - - - - - + + - - - - - - - - - +
-```
+![rotate0](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate0.jpg = 200x200) ![rotate1](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate1.svgz = 200x200)
 ### Down Scaling
 Down scaling 2x 4x in both x,y direction
+![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.jpg = 200x200) ![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.jpg = 100x100) ![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.jpg = 50x50)
 ## Data swizzle in line buffer's bank
-There are 8 banks of sram in line buffer, the data width of the bank is 32 bits. 
-Different lines start at different banks like below. Bank number = y[2:0] + x[2:0]
-```
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |     bank0     |  |   bank1    ||   bank2   ||  bank3   || bank4 || bank5 || bank6 || bank7 |
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |      p0       |  |     p1     ||    p2     ||    p3    ||  p4   ||  p5   ||  p6   ||  p7   |
-line0 +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |      p8       |  |     p9     ||    p10    ||   p11    ||  p12  ||  p13  ||  p14  ||  p15  |
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      ......
-      ...
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |      p7       |  |     p0     ||    p1     ||    p2    ||  p3   ||  p4   ||  p5   ||  p6   |
-line1 +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |      p15      |  |     p8     ||    p9     ||   p10    ||  p11  ||  p12  ||  p13  ||  p14  |
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      ......
-      ...
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |      p6       |  |     p7     ||    p0     ||    p1    ||  p2   ||  p3   ||  p4   ||  p5   |
-line2 +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      |      p14      |  |    p15     ||    p8     ||    p9    ||  p10  ||  p11  ||  p12  ||  p13  |
-      +---------------+  +------------++-----------++----------++-------++-------++-------++-------+
-      ......
-      ...
-``` 
+There are 8 banks of sram in line buffer, the data width of the bank is 64 bits. 
+Different lines start at different banks like below. Bank number = y[2:0] + x[3:1]
+![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/swizzle.jpg = 200x200) 
 ## Data back out of order
 During send out the requests, 
 we have compute out the bank number and banks address and put these information into tag.
 When data back we can easily obtain the bank number and banks address.
+## Multi-Frame
+DNT need three frame. We need load two more frame back if DNT on. 
+We obtain other frame's address by adding an offset to current frame's address. 
