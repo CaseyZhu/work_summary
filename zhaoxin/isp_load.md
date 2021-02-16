@@ -70,13 +70,13 @@ There is an overlap region between different slices as below.
 ![slice](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/cut_slice.svg)
 ### Rotation
 In this mode we need rotate the image.
-![rotate0](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate0.jpg) ![rotate1](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate1.svgz)
+![rotate0](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate0.jpg) ![rotate1](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate1.svg)
 ### Down Scaling
 Down scaling 2x 4x in both x,y direction
-![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.svgz)
+![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.svg)
 ## Data swizzle in line buffer's bank
 There are 8 banks of sram in line buffer, the data width of the bank is 64 bits. 
-Different lines start at different banks like below. Bank number = y[2:0] + x[3:1]
+Different lines start at different banks like below. Bank number = y[2:0] + x[3:1].<br>
 ![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/swizzle.jpg) 
 ## Data back out of order
 During send out the requests, 
