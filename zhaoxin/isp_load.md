@@ -62,7 +62,7 @@ so only 512 bits data back we can start the process.
 ```
 ## Basic Process
 ### Clip Image
-In this mode we only want to process part of the image, the top, bottom,left, right may be cliped.
+In this mode we only want to process part of the image, the top, bottom,left, right may be cliped.<br>
 ![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg )
 ### Cut Slice
 Becaus line buffer's size is limited, so we need cut the image into slices when the iamge is too big.
