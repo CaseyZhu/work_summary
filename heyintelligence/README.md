@@ -11,7 +11,7 @@ and additional share of input feature-map between weight are added.<br>
 ## Partial Sum and Add bias
 The convolution engine just compute part of the results, 
 we need add all the results from the input channel.<br> 
-![](https://pic3.zhimg.com/80/v2-16b8d1c25cd06bee7b0b32cf89b16bfa_720w.jpg)
+![](https://pic3.zhimg.com/80/v2-16b8d1c25cd06bee7b0b32cf89b16bfa_720w.jpg)<br>
 Add bias is the basic function in CNN.
 
 ## Elementwise 
@@ -24,14 +24,14 @@ this module set two threshold which divide the incomming data into three part.
 each part have a coefficence and a bias. 
 And per-channel relu also need to support, so these information need read backfrom external memory.
 The structure as below.<br>
-![relu](https://github.com/CaseyZhu/work_summary/blob/main/heyintelligence/relu.jpg)
+![relu](https://github.com/CaseyZhu/work_summary/blob/main/heyintelligence/image/relu.jpg)
 
 ## Pooling
 The function of pooling is down sampling the input feature map. 
 We support 3x3, 2x2 max/average pooling. 
 Using the structure below we realize the data sharing between different pooling window.
 The structure of pooling as below.<br> 
-![pooling](https://github.com/CaseyZhu/work_summary/blob/main/heyintelligence/pooling.jpg)
+![pooling](https://github.com/CaseyZhu/work_summary/blob/main/heyintelligence/image/pooling.jpg)
 The special case is at the end of each line, the data is less than we need.
 For example, 3x3 average pooling. 
 1) at end there only left 6 point, we do not want to add additional divider, so use the formula below to reuse 1/9 function.<br>
