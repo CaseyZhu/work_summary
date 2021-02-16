@@ -31,7 +31,7 @@ The function of pooling is down sampling the input feature map.
 We support 3x3, 2x2 max/average pooling. 
 Using the structure below we realize the data sharing between different pooling window.
 The structure of pooling as below.<br> 
-![pooling](https://github.com/CaseyZhu/work_summary/blob/main/heyintelligence/image/pooling.jpg)
+![pooling](https://github.com/CaseyZhu/work_summary/blob/main/heyintelligence/image/pooling.jpg)<br>
 The special case is at the end of each line, the data is less than we need.
 For example, 3x3 average pooling. 
 1) at end there only left 6 point, we do not want to add additional divider, so use the formula below to reuse 1/9 function.<br>
