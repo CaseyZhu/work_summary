@@ -66,13 +66,13 @@ In this mode we only want to process part of the image, the top, bottom,left, ri
 ![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg )
 ### Cut Slice
 Becaus line buffer's size is limited, so we need cut the image into slices when the iamge is too big.
-There is an overlap region between different slices as below.
+There is an overlap region between different slices as below.<br>
 ![slice](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/cut_slice.svg)
 ### Rotation
-In this mode we need rotate the image.
+In this mode we need rotate the image.<br>
 ![rotate0](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate0.jpg) ![rotate1](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/rotate1.svg)
 ### Down Scaling
-Down scaling 2x 4x in both x,y direction
+Down scaling 2x 4x in both x,y direction<br>
 ![](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/ds24.svg)
 ## Data swizzle in line buffer's bank
 There are 8 banks of sram in line buffer, the data width of the bank is 64 bits. 
