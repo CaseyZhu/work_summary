@@ -63,7 +63,7 @@ so only 512 bits data back we can start the process.
 ## Basic Process
 ### Clip Image
 In this mode we only want to process part of the image, the top, bottom,left, right may be cliped.
-![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg =200x200)
+![clip](https://github.com/CaseyZhu/work_summary/blob/main/zhaoxin/image/clip.svg ){:height="200px" width="200px"}
 ### Cut Slice
 Becaus line buffer's size is limited, so we need cut the image into slices when the iamge is too big.
 There is an overlap region between different slices as below.
